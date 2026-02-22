@@ -1,3 +1,4 @@
+# importing python libraries and other files
 from .black_scholes import BlackScholes
 from . import black_scholes
 import math
@@ -70,7 +71,3 @@ class Greeks:
             return rho_call
         elif self.bs.option_type == "put":
             return rho_put
-        
-g = Greeks(black_scholes.option)
-
-print(g.vega())
