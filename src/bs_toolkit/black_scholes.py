@@ -1,7 +1,7 @@
+# importing python libraries
 import math
 from scipy import stats
 
-implied_volatility = 0.2 # implied volatility is initially a 20% estimation
 
 class BlackScholes:
     def __init__(self, spot_price: float, strike_price: float, time_to_maturity: float, risk_free_rate: float, dividend_yield: float, sigma: float, option_type: str, market_price: float):
@@ -14,12 +14,15 @@ class BlackScholes:
         self.market_price = market_price
         self.sigma = sigma
         
-        # validating variables
-        if self.S <= 0 or self.K <= 0 or self.sigma <= 0:
-            raise ValueError("Spot price, Strike price and Implied volatility must be positive.")
+        # validating inputed variables
+        if self.S <= 0 or self.K <= 0 or self.sigma <= 0 or self.market_price <= 0:
+            raise ValueError("Spot price, Strike price, Market price and Implied volatility must be positive.")
         elif self.T < 0 or self.q < 0:
             raise ValueError("Time to maturity and Dividend yield must not be negative.")
-    
+        elif self.option_type != "put" or self.option_type != "call":
+            raise ValueError("Option type must either be a put or call.")
+
+        
         
     # calculating d1 and d2 values and outputing them as a tuple of real numbers
     def d1_d2(self) -> tuple[float ,float]:
@@ -43,22 +46,24 @@ class BlackScholes:
             return Call
         elif self.option_type == "put":
             return Put
-        else:
-            raise ValueError("Option type must either be a Put or a Call.")
         
 
+# welcome message to user running the programme 
+print("Welcome to the Black Scholes Calculator!")
+print("It calculates options prices, the greeks(delta, gamma, vega, theta and rho) as well as implied volatility.")    
 
-    
-
+# inputing the parameters of the model
 spot_price = float(input("Enter the Spot Price of the option: "))
 strike_price = float(input("Enter the Strike Price of the option: "))
-time_to_maturity = float(input("Enter the Time to Maturity of the option: "))
+time_to_maturity = float(input("Enter the Time to Maturity of the option(in days): ")) /365 
 risk_free_rate = float(input("Enter the Risk Free Rate of the option: "))
 dividend_yield = float(input("Enter the Dividend Yield of the option: "))
 option_type = input("Enter the Option Type (call/put): ")
-market_price = float(input("Enter the Market Price of the option"))
+market_price = float(input("Enter the Market Price of the option: "))
+
+implied_volatility = 0.2 # implied volatility is initially a 20% estimation
  
-        
+       
 option = BlackScholes(spot_price,
                       strike_price,
                       time_to_maturity,
@@ -67,5 +72,3 @@ option = BlackScholes(spot_price,
                       implied_volatility,
                       option_type,
                       market_price)
-
-
