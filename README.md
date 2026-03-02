@@ -15,15 +15,15 @@ This is my first project exploring quantitative finance so my motivation for thi
 
 
 ## File/folder structure of the project:
-Black-Scholes-Project/
-│── src/
-│   └── bs_toolkit/
-│       │── __init__.py
-│       │── black_scholes.py
-│       │── greeks.py
-│       │── implied_vol.py
-│
-│── README.md
+    Black-Scholes-Project/
+    │── src/
+    │   └── bs_toolkit/
+    │       │── __init__.py
+    │       │── black_scholes.py
+    │       │── greeks.py
+    │       │── implied_vol.py
+    │
+    │── README.md
 
 ## Installation & Requirements:
 This project requires the Scipy library, as well as the built-in Math library
