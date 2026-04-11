@@ -2,7 +2,7 @@
 
 
 ## Description:
-In this project I implementated the black scholes formula in python, along with the following greeks: delta, gamma, vega, theta and rho.
+In this project I implemented the black scholes formula in python, along with the following greeks: delta, gamma, vega, theta and rho.
 I also Implemented the iterative method of finding the implied volatility of the option using the Newton Raphson method.
 This is my first project exploring quantitative finance so my motivation for this project was to learn more about the Black Scholes model while also developing my skills with object oriented programming in python.
 
