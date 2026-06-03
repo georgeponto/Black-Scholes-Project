@@ -27,7 +27,6 @@ This is my first project exploring quantitative finance so my motivation for thi
 
 ## Installation & Requirements:
 This project requires the Scipy library, as well as the built-in Math library.
-
 This project requires Python 3.11+ 
 
 To install the project use the following bash commands:
